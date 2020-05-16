@@ -1,10 +1,13 @@
 {
-  "name": "customized-react-zoom-pan-pinch",
+  "name": "@prince3339/customized-react-zoom-pan-pinch",
   "version": "1.6.2",
   "description": "Zoom and pan html elements in easy way",
   "author": "prc5 | Sabbir",
   "license": "MIT",
-  "repository": "prc5/react-zoom-pan-pinch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prc5/react-zoom-pan-pinch.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -88,5 +91,12 @@
     "svg",
     "bounds",
     "context"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/prc5/react-zoom-pan-pinch/issues"
+  },
+  "homepage": "https://github.com/prc5/react-zoom-pan-pinch#readme",
+  "directories": {
+    "example": "example"
+  }
 }
