@@ -69,6 +69,7 @@ export interface PropsList {
     step?: number;
     mode?: string;
     animation?: boolean;
+    disableOnTarget: string[],
     animationTime?: number;
     animationType?: string;
   };

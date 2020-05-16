@@ -69,12 +69,14 @@ export const initialState = {
     animation: true,
     animationType: "easeOut",
     animationTime: 200,
+    disableOnTarget: [],
   },
   reset: {
     disabled: false,
     animation: true,
     animationType: "easeOut",
     animationTime: 200,
+    disableOnTarget: [],
   },
   scalePadding: {
     disabled: false,

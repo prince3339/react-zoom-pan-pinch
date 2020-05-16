@@ -424,6 +424,21 @@ class StateProvider extends Component<StateContextProps, StateContextState> {
   // Controls
   //////////
 
+  checkDbClickTarget = event => {
+    const {
+      doubleClick: { disableOnTarget },
+    } = this.stateProvider;
+
+    return (
+      disableOnTarget
+        .map(tag => tag.toUpperCase())
+        .includes(event.target.tagName) ||
+      disableOnTarget.find(element =>
+        event.target.classList.value.includes(element),
+      )
+    );
+  };
+
   zoomIn = event => {
     const {
       zoomIn: { disabled, step },
@@ -458,7 +473,7 @@ class StateProvider extends Component<StateContextProps, StateContextState> {
     const { wrapperComponent, contentComponent } = this.state;
 
     if (!event) throw Error("Double click function requires event prop");
-    if (disabled || options.disabled || !wrapperComponent || !contentComponent)
+    if (disabled || options.disabled || !wrapperComponent || !contentComponent || this.checkDbClickTarget(event))
       return;
     handleDoubleClick.call(this, event, 1, step);
   };
