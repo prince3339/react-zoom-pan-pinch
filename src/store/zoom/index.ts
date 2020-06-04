@@ -118,10 +118,36 @@ export function handleWheelZoom(event) {
 
   this.bounds = bounds;
   this.stateProvider.previousScale = scale;
-  this.stateProvider.scale = newScale;
-  this.stateProvider.positionX = x;
-  this.stateProvider.positionY = y;
-  this.applyTransformation();
+  // this.stateProvider.scale = newScale;
+  // this.stateProvider.positionX = x;
+  // this.stateProvider.positionY = y;
+  // this.applyTransformation();
+
+  console.log(x, y);
+
+  const targetState = handleZoomToPoint.call(
+    this,
+    disabled,
+    newScale,
+    mouseX,
+    mouseY,
+  );
+
+  if (targetState.scale === scale) return;
+  // const targetScale = handleCalculateZoom.call(
+  //   this,
+  //   delta,
+  //   step,
+  //   true,
+  //   undefined,
+  //   true,
+  // );
+  // const time = getButtonAnimationTime(targetScale, newScale, 200);
+  animateComponent.call(this, {
+    targetState,
+    speed: 20,
+    type:  "easeOut",
+  });
 }
 
 /**
